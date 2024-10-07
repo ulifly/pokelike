@@ -4,8 +4,12 @@ const ctx = canvas.getContext('2d');
 canvas.width = 1024;
 canvas.height = 768;
 
-ctx.fillStyle = 'white';
-ctx.fillRect(0, 0, canvas.width, canvas.height);
+const CollisionsMap = [];
+
+for (let i = 0; i <= Collisions.length; i+=70) {
+  CollisionsMap.push(Collisions.slice(i,70+i));
+}
+console.log(CollisionsMap);
 
 //--- images ---//
 const img = new Image();
@@ -65,15 +69,14 @@ function animate() {
   );
 
   if (keys.w.pressed && lastKey === 'w') {
-    background.position.y += 1;
+    background.position.y += 3;
   } else if (keys.s.pressed && lastKey === 's') {
-    background.position.y -= 1;
+    background.position.y -= 3;
   } else if (keys.a.pressed && lastKey === 'a') {
-    background.position.x += 1;
+    background.position.x += 3;
   } else if (keys.d.pressed && lastKey === 'd') {
-    background.position.x -= 1;
+    background.position.x -= 3;
   }
-  console.log(background.position);
 
 }
 
